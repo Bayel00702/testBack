@@ -48,3 +48,18 @@ export const resUser = async (req,res) => {
         })
     }
 }
+
+export const delUser = async (req,res) => {
+    try{
+        const user = await userModel.findByIdAndDelete(req.params.id)
+
+        res.json({
+            message: 'Юзер успешно удален'
+        })
+    }catch (err) {
+        console.log(err);
+        res.status(500).json({
+            message: 'Не удалось удалить юзера'
+        })
+    }
+}

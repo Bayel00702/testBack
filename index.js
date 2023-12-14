@@ -5,7 +5,7 @@ import {
     register,
     resPassword
 } from "./controlers/auth.js";
-import {getAllUsers, getOneUser, resUser} from "./controlers/user.js";
+import {delUser, getAllUsers, getOneUser, resUser} from "./controlers/user.js";
 
 const api = express()
 api.use(express.json())
@@ -31,6 +31,7 @@ api.post('/resPass', resPassword)
 api.get('/users', getAllUsers)
 api.get('/user/:id', getOneUser)
 api.post('/resUser/:id', resUser)
+api.delete('/user/:id', delUser)
 
 
 api.listen(PORT,()=>{
